@@ -104,6 +104,7 @@ export const lists: Lists = {
       product: relationship({ref: 'Product', many: false}),
       campaign: relationship({ref: 'Campaign', many: false}),
       price: decimal(),
+      promotion: integer(),
     }
   }),
   Product: list({
