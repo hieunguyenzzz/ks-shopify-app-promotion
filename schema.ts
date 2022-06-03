@@ -110,7 +110,7 @@ export const lists: Lists = {
   Product: list({
     fields: {
       name: text(),
-      sku: text(),
+      sku: text({isFilterable: true}),
       compareAtPrice: decimal(),
       shopifyId: text({isFilterable: true, isIndexed: 'unique'}),
       store: relationship({ref: 'Store', many: false,isFilterable: true})
