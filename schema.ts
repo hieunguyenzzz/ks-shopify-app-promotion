@@ -89,6 +89,7 @@ export const lists: Lists = {
       active_to_date: timestamp(),
       priority: integer(),
       store: relationship({ref: 'Store', many: false,isFilterable: true}),
+      promotion: integer(),
       data: json()
     },
     hooks: {

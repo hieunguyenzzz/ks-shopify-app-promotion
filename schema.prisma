@@ -34,6 +34,7 @@ model Campaign {
   priority                   Int?
   store                      Store?         @relation("Campaign_store", fields: [storeId], references: [id])
   storeId                    String?        @map("store")
+  data                       Json?
   from_CampaignItem_campaign CampaignItem[] @relation("CampaignItem_campaign")
 
   @@index([storeId])
@@ -46,6 +47,7 @@ model CampaignItem {
   campaign   Campaign? @relation("CampaignItem_campaign", fields: [campaignId], references: [id])
   campaignId String?   @map("campaign")
   price      Decimal?  @postgresql.Decimal(18, 4)
+  promotion  Int?
 
   @@index([productId])
   @@index([campaignId])

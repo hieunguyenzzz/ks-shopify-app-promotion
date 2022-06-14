@@ -143,6 +143,7 @@ type Campaign {
   active_to_date: DateTime
   priority: Int
   store: Store
+  data: JSON
 }
 
 scalar DateTime
@@ -203,6 +204,7 @@ input CampaignUpdateInput {
   active_to_date: DateTime
   priority: Int
   store: StoreRelateToOneForUpdateInput
+  data: JSON
 }
 
 input StoreRelateToOneForUpdateInput {
@@ -223,6 +225,7 @@ input CampaignCreateInput {
   active_to_date: DateTime
   priority: Int
   store: StoreRelateToOneForCreateInput
+  data: JSON
 }
 
 input StoreRelateToOneForCreateInput {
@@ -235,6 +238,7 @@ type CampaignItem {
   product: Product
   campaign: Campaign
   price: Decimal
+  promotion: Int
 }
 
 scalar Decimal
@@ -251,6 +255,7 @@ input CampaignItemWhereInput {
   product: ProductWhereInput
   campaign: CampaignWhereInput
   price: DecimalNullableFilter
+  promotion: IntNullableFilter
 }
 
 input DecimalNullableFilter {
@@ -267,12 +272,14 @@ input DecimalNullableFilter {
 input CampaignItemOrderByInput {
   id: OrderDirection
   price: OrderDirection
+  promotion: OrderDirection
 }
 
 input CampaignItemUpdateInput {
   product: ProductRelateToOneForUpdateInput
   campaign: CampaignRelateToOneForUpdateInput
   price: Decimal
+  promotion: Int
 }
 
 input ProductRelateToOneForUpdateInput {
@@ -296,6 +303,7 @@ input CampaignItemCreateInput {
   product: ProductRelateToOneForCreateInput
   campaign: CampaignRelateToOneForCreateInput
   price: Decimal
+  promotion: Int
 }
 
 input ProductRelateToOneForCreateInput {
